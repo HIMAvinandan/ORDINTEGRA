@@ -36,8 +36,8 @@ Usability is the ordinary default. Development should cultivate the Ordinal prac
 
 - Selected typo, title and internal-link corrections have been made on all four sites and read back after saving.
 - Chronograph / Legal has received the most recent resumed batch work, including verified orthographic/spacing corrections on pages 581, 582, 600, 644, 655, 672, 692 and 1031.
-- Several additional Chronograph page batches were screened without definite corrections.
-- Some records remain unavailable for reliable inspection (including Chronograph page IDs 601 and 653, which returned empty content during retrieval); these are not counted as reviewed.
+- Several additional Chronograph page batches were screened without definite corrections, including pages 1322, 1408 and 1412 in the latest continuation batch.
+- Chronograph page 601 was recovered on a later retrieval and received verified spacing/spelling corrections: 14 `upto` → `up to`, 3 `atleast` → `at least`, and 1 `recieved` → `received`. Page 653 was also successfully retrieved on retry; no definite common spelling candidate was found in that screening pass.
 - Existing slugs were preserved in title corrections.
 - No new WordPress content was created or published.
 
