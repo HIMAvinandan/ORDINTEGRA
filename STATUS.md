@@ -1,6 +1,8 @@
 # ORDINTEGRA — Live Work Status
 
 **Working branch:** `Usualty`  
+**Repository visibility:** Public  
+**Dashboard deployment:** GitHub Pages workflow added; first successful deployment not yet verified  
 **Status:** Active; incomplete  
 **Last recorded update:** 2026-11-23  
 **Purpose:** Operational visibility for current undertakings. This page is updated when work is performed and recorded; it is not a background monitor or a live WordPress synchronisation service.
