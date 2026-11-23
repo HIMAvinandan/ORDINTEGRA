@@ -2,14 +2,15 @@
 
 **Working branch:** `Usualty`  
 **Repository visibility:** Public  
-**Dashboard deployment:** GitHub Pages workflow configured; deployment verification pending a successful Actions run  
+**Dashboard deployment:** <badge>Not used</badge> GitHub Pages deployment successfully completed and reported successful by GitHub Actions on 2026-11-23  
+**Public dashboard:** https://himavinandan.github.io/ORDINTEGRA/  
 **Status:** Active; incomplete  
 **Last recorded update:** 2026-11-23  
 **Purpose:** Operational visibility for current undertakings. This page is updated when work is performed and recorded; it is not a background monitor or a live WordPress synchronisation service.
 
-## Deployment verification checkpoint
+## Deployment verification
 
-Repository permissions were adjusted by the owner after three workflow runs ended in `startup_failure` before any job was created. A new push is being used to test whether the revised permissions allow the Pages workflow to start. The dashboard must not be described as live until an Actions run succeeds and the public Pages URL serves this page.
+The first successful GitHub Pages deployment completed on 2026-11-23. GitHub Actions run #6 completed with conclusion `success`; its deployment step reported **“Reported success!”** and recorded the environment URL as https://himavinandan.github.io/ORDINTEGRA/. The workflow uses full-length commit SHA pins for its actions and a SHA-pinned artifact uploader. The public URL is the intended published endpoint; direct browser retrieval from this session was unavailable, so the confirmation here rests on GitHub's successful deployment result.
 
 ## Governing practice
 
