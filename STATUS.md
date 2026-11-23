@@ -2,10 +2,14 @@
 
 **Working branch:** `Usualty`  
 **Repository visibility:** Public  
-**Dashboard deployment:** GitHub Pages workflow added; first successful deployment not yet verified  
+**Dashboard deployment:** GitHub Pages workflow configured; deployment verification pending a successful Actions run  
 **Status:** Active; incomplete  
 **Last recorded update:** 2026-11-23  
 **Purpose:** Operational visibility for current undertakings. This page is updated when work is performed and recorded; it is not a background monitor or a live WordPress synchronisation service.
+
+## Deployment verification checkpoint
+
+Repository permissions were adjusted by the owner after three workflow runs ended in `startup_failure` before any job was created. A new push is being used to test whether the revised permissions allow the Pages workflow to start. The dashboard must not be described as live until an Actions run succeeds and the public Pages URL serves this page.
 
 ## Governing practice
 
