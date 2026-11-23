@@ -2,7 +2,7 @@
 
 **Working branch:** `Usualty`  
 **Repository visibility:** Public  
-**Dashboard deployment:** <badge>Not used</badge> GitHub Pages deployment successfully completed and reported successful by GitHub Actions on 2026-11-23  
+**Dashboard deployment:** GitHub Pages deployment successfully completed and reported successful by GitHub Actions on 2026-11-23  
 **Public dashboard:** https://himavinandan.github.io/ORDINTEGRA/  
 **Status:** Active; incomplete  
 **Last recorded update:** 2026-11-23  
