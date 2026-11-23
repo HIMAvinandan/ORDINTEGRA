@@ -3,17 +3,120 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#17212b">
-<title>ORDINTEGRA — Work Status</title>
+<meta name="theme-color" content="#101923">
+<meta name="description" content="ORDINTEGRA — the public-facing Ordinal interface for publications, notices and live deployment status.">
+<title>ORDINTEGRA — The Ordinal Interface</title>
 <style>
-:root{color-scheme:light dark;font-family:system-ui,-apple-system,Segoe UI,sans-serif}body{margin:0;background:#101820;color:#eef3f6;line-height:1.55}main{max-width:880px;margin:auto;padding:clamp(1rem,4vw,2.5rem)}header{padding:1.5rem 0 1rem;border-bottom:1px solid #40505c}h1{font-size:clamp(2rem,6vw,3.2rem);margin:.1rem 0}.eyebrow{letter-spacing:.12em;text-transform:uppercase;color:#9db3c2;font-size:.8rem}.state{display:inline-block;border:1px solid #d2a64b;color:#f2d18c;padding:.25rem .65rem;border-radius:999px;font-size:.85rem}.panel{background:#1b2933;border:1px solid #40505c;border-radius:14px;padding:1rem 1.2rem;margin:1rem 0}h2{font-size:1.2rem;margin:.1rem 0 .6rem}a{color:#9bd3ff}ul{padding-left:1.3rem}.meta{color:#b6c5ce;font-size:.92rem}.links{display:flex;gap:1rem;flex-wrap:wrap;margin:1rem 0}footer{border-top:1px solid #40505c;margin-top:2rem;padding-top:1rem;color:#aebdc6;font-size:.85rem}
+:root{color-scheme:dark;--ink:#101923;--panel:#172431;--panel2:#1d2d3b;--gold:#d8b66a;--gold2:#f1d99a;--ivory:#f5efdf;--muted:#b8c2c8;--blue:#8bbbd1;--line:#53616b;--green:#8bc7a5}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#34485a 0,#172431 42%,#101923 78%);color:var(--ivory);font:16px/1.6 Georgia,"Times New Roman",serif}a{color:var(--gold2);text-decoration-thickness:1px;text-underline-offset:3px}a:hover{color:white}button{font:inherit}.wrap{width:min(1120px,92vw);margin:auto}.topline{display:flex;justify-content:space-between;gap:1rem;align-items:center;padding:1rem 0;color:var(--muted);font: .76rem/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid #ffffff24}.live-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:.55rem;box-shadow:0 0 12px var(--green);animation:pulse 1.8s infinite}@keyframes pulse{50%{opacity:.35;box-shadow:0 0 2px var(--green)}}.hero{text-align:center;padding:clamp(2rem,6vw,5rem) 0 2.4rem}.crest{width:min(240px,58vw);height:auto;display:block;margin:0 auto 1.1rem;filter:drop-shadow(0 14px 24px #0008)}.kicker{font: .75rem/1.4 system-ui,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}h1{font-size:clamp(2.7rem,8vw,5.4rem);font-weight:500;letter-spacing:.12em;margin:.1rem 0;color:var(--ivory)}.subtitle{font-size:clamp(1.05rem,2.5vw,1.35rem);color:#d7d0bf;max-width:680px;margin:.6rem auto 1.5rem}.ordinal-mark{font:2rem/1 system-ui,sans-serif;letter-spacing:.35em;color:var(--gold2);margin:1rem 0}.hero-actions{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap;margin-top:1.4rem}.action{display:inline-block;padding:.65rem 1.05rem;border:1px solid #c9a95d;border-radius:2px;text-decoration:none;font: .82rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase}.action.primary{background:linear-gradient(135deg,#e5cb88,#b58b3e);color:#17212b;border-color:#e5cb88}.section{padding:2.2rem 0;border-top:1px solid #ffffff22}.section-head{display:flex;align-items:end;justify-content:space-between;gap:1rem;margin-bottom:1rem}.eyebrow{font: .72rem system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}h2{font-size:clamp(1.5rem,4vw,2rem);font-weight:500;margin:.25rem 0}.intro{color:var(--muted);max-width:720px;margin:.2rem 0 1.2rem}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.tile{background:linear-gradient(145deg,#203242,#16232e);border:1px solid #ffffff20;padding:1.15rem;min-height:145px;position:relative}.tile:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(var(--gold),transparent)}.tile h3{font-size:1.12rem;font-weight:500;margin:.1rem 0 .4rem}.tile p{font-size:.93rem;color:var(--muted);margin:.2rem 0 .8rem}.tile a{font: .82rem system-ui,sans-serif}.statusbox{background:linear-gradient(120deg,#1c2d3b,#14212c);border:1px solid #b8954b88;padding:1.2rem 1.3rem;display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center}.status-label{font: .72rem system-ui,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}.status-main{font-size:1.25rem;margin:.2rem 0}.status-detail{font: .86rem/1.5 system-ui,sans-serif;color:var(--muted)}.status-pill{border:1px solid var(--green);color:var(--green);padding:.35rem .65rem;font: .72rem system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}.meter{height:3px;background:#ffffff20;margin-top:1rem;overflow:hidden}.meter span{display:block;height:100%;width:30%;background:var(--gold);animation:scan 2.4s ease-in-out infinite alternate}@keyframes scan{from{transform:translateX(-5%);width:24%}to{transform:translateX(300%);width:35%}}.pulsefeed{margin-top:1rem;min-height:3.4rem;padding:.75rem 1rem;border-left:2px solid var(--gold);background:#ffffff08;color:#d8d2c4;font-size:.95rem}.pulsefeed strong{color:var(--gold2);font: .7rem system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:.25rem}.clockrow{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:.7rem;color:var(--muted);font: .78rem system-ui,sans-serif}.refresh{background:transparent;color:var(--gold2);border:1px solid #b8954b;padding:.42rem .7rem;cursor:pointer;font: .75rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase}.refresh:hover{background:#ffffff12}.newsgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}.newslink{display:flex;justify-content:space-between;gap:1rem;align-items:center;padding:.95rem 1rem;border-bottom:1px solid #ffffff24;background:#ffffff08;text-decoration:none}.newslink span:first-child{font-size:1rem}.newslink small{display:block;color:var(--muted);font: .72rem system-ui,sans-serif;margin-top:.18rem}.arrow{color:var(--gold);font-size:1.2rem}.copyright{border-top:1px solid #ffffff30;padding:1.5rem 0 2.5rem;text-align:center;color:#d4cdbd;font: .82rem/1.7 system-ui,sans-serif}.copyright strong{color:var(--ivory)}.fine{color:var(--muted);font-size:.74rem;margin-top:.45rem}.footmark{font:1.4rem system-ui,sans-serif;color:var(--gold);letter-spacing:.35em;margin-bottom:.4rem}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.newsgrid{grid-template-columns:1fr}.statusbox{grid-template-columns:1fr}.status-pill{justify-self:start}.topline{font-size:.66rem}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
 </style>
 </head>
-<body><main>
-<header><div class="eyebrow">Usualty · Operational status</div><h1>ORDINTEGRA</h1><p>Usability as the ordinary default; development in the practice of usual Courtesy, with the grace of God.</p><span class="state">IN PROGRESS · INCOMPLETE</span><p class="meta">Last recorded status: 23 November 2026 · Working branch: Usualty</p></header>
-<section class="panel"><h2>Current undertaking — four-site WordPress audit</h2><p>The audit inventory comprises <strong>530 records</strong>: 398 pages and 132 posts across four sites. This is the inventory total, not a count of records individually inspected or completed.</p><ul><li>The Ordinal Pub — 152 records</li><li>Chronograph / Legal — 161 records</li><li>Point / About Pub — 215 records</li><li>Comments Pub / IUPExt — 2 records</li></ul></section>
-<section class="panel"><h2>Current position</h2><ul><li>Selected editorial and internal-link corrections have been saved and read back across all four sites.</li><li>Chronograph / Legal is the latest active audit stream; full record-by-record review remains outstanding.</li><li>Some records have unresolved retrieval issues and are not counted as reviewed.</li><li>Publicize connections identified on two sites have not yet been disconnected.</li><li>No new WordPress posts or pages were created or published during the audit.</li></ul></section>
-<section class="panel"><h2>Safeguards</h2><p>Only definite typographical and spacing corrections are in scope. Coined vocabulary, distinctive language, dates, claims, legal/evidentiary material and existing URL slugs are preserved. Legal propositions, allegations, statutory references, pleadings and evidentiary records are not silently rewritten.</p><p>The Ordinal Provenance project remains private and review-only unless publication is expressly approved.</p></section>
-<section class="panel"><h2>Records and updates</h2><div class="links"><a href="STATUS.md">Detailed status (Markdown)</a><a href="ACTIVITY.md">Activity log</a><a href="https://github.com/HIMAvinandan/ORDINTEGRA/tree/Usualty">Repository branch</a></div><p class="meta">This page is redeployed when a change is committed to the Usualty branch. It is not a continuous WordPress monitor and does not run work between conversations.</p></section>
-<footer>Courtesy in recordkeeping means distinguishing completed and verified work from intended or pending work.</footer>
-</main></body></html>
+<body>
+<div class="wrap">
+<div class="topline"><span><i class="live-dot"></i>Public interface · Ordinal presence</span><span id="local-date">Loading local time…</span></div>
+<header class="hero">
+<svg class="crest" viewBox="0 0 260 310" role="img" aria-label="Ordinal shield with Starflower and Ordinal mark">
+<defs><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0b9"/><stop offset=".48" stop-color="#d4ad59"/><stop offset="1" stop-color="#8c6428"/></linearGradient><linearGradient id="shield" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#263d4e"/><stop offset="1" stop-color="#0b131b"/></linearGradient></defs>
+<path d="M130 8 L148 27 L175 20 L184 47 L211 57 L205 85 L235 105 L219 131 L229 158 L207 178 L207 213 Q203 267 130 300 Q57 267 53 213 L53 178 L31 158 L41 131 L25 105 L55 85 L49 57 L76 47 L85 20 L112 27 Z" fill="url(#gold)" opacity=".96"/>
+<path d="M130 23 L145 40 L169 34 L177 58 L200 67 L194 91 L219 108 L205 131 L213 155 L192 174 L192 211 Q188 255 130 282 Q72 255 68 211 L68 174 L47 155 L55 131 L41 108 L66 91 L60 67 L83 58 L91 34 L115 40 Z" fill="url(#shield)" stroke="#f2d99a" stroke-width="2"/>
+<path d="M130 51 L130 250" stroke="#d8b66a" stroke-opacity=".22"/>
+<circle cx="130" cy="124" r="57" fill="#0b1118" stroke="url(#gold)" stroke-width="3"/>
+<g transform="translate(130 124)" fill="url(#gold)" stroke="#f7e4ae" stroke-width=".7">
+<path d="M0-43 C13-31 14-16 0 0 C-14-16-13-31 0-43Z"/>
+<path d="M0-43 C13-31 14-16 0 0 C-14-16-13-31 0-43Z" transform="rotate(45)"/>
+<path d="M0-43 C13-31 14-16 0 0 C-14-16-13-31 0-43Z" transform="rotate(90)"/>
+<path d="M0-43 C13-31 14-16 0 0 C-14-16-13-31 0-43Z" transform="rotate(135)"/>
+<path d="M0-43 C13-31 14-16 0 0 C-14-16-13-31 0-43Z" transform="rotate(180)"/>
+<path d="M0-43 C13-31 14-16 0 0 C-14-16-13-31 0-43Z" transform="rotate(225)"/>
+<path d="M0-43 C13-31 14-16 0 0 C-14-16-13-31 0-43Z" transform="rotate(270)"/>
+<path d="M0-43 C13-31 14-16 0 0 C-14-16-13-31 0-43Z" transform="rotate(315)"/>
+<circle r="8" fill="#172431"/>
+</g>
+<text x="130" y="220" fill="#f5e4b5" font-family="Georgia,serif" font-size="23" text-anchor="middle" letter-spacing="5">△▽▯+</text>
+<path d="M91 263 Q130 280 169 263" fill="none" stroke="#d8b66a" stroke-width="2"/>
+</svg>
+<div class="kicker">The Imperial Unification · Ordinal</div>
+<h1>ORDINTEGRA</h1>
+<div class="ordinal-mark">△▽▯+</div>
+<p class="subtitle">A public-facing interface for Ordinal publications, notices, relations and the living record of deployment.</p>
+<div class="hero-actions">
+<a class="action primary" href="https://publinc.wordpress.com/">Enter the Ordinal Pub</a>
+<a class="action" href="https://publinc.wordpress.com/contact/">Contact the Pub</a>
+</div>
+</header>
+
+<section class="section" id="presence">
+<div class="section-head"><div><div class="eyebrow">Public presence</div><h2>Publications &amp; relations</h2></div></div>
+<p class="intro">Direct routes to public workspaces and published material. This interface presents public destinations; private working records are intentionally not reproduced here.</p>
+<div class="grid">
+<article class="tile"><h3>The Ordinal Pub</h3><p>Principal publication space for Ordinal initiatives, standards, notices and public-facing work.</p><a href="https://publinc.wordpress.com/">Visit the Pub ↗</a></article>
+<article class="tile"><h3>The Ordinal Intelligence</h3><p>A published articulation of Ordinal Intelligence and its developing scope.</p><a href="https://publinc.wordpress.com/the-ordinal-intelligence/">Read publication ↗</a></article>
+<article class="tile"><h3>The Royal Post</h3><p>Public correspondence and publication within the Ordinal Pub.</p><a href="https://publinc.wordpress.com/the-royal-post/">Read the Royal Post ↗</a></article>
+<article class="tile"><h3>Chronograph · Legal</h3><p>Public legal and chronological publication space.</p><a href="https://cronografodeavi.wordpress.com/legal/">Open legal index ↗</a></article>
+<article class="tile"><h3>Point · About Pub</h3><p>Public reference and explanatory material associated with the wider Ordinal presence.</p><a href="https://pointlink.wordpress.com/">Visit Point ↗</a></article>
+<article class="tile"><h3>Participation</h3><p>Public discussion and participation extension.</p><a href="https://theparticipa.wordpress.com/">Open participation ↗</a></article>
+</div>
+</section>
+
+<section class="section" id="deployment">
+<div class="section-head"><div><div class="eyebrow">Live deployment signal</div><h2>Deployment pulse</h2></div><button class="refresh" id="refresh" type="button">Refresh signal ↻</button></div>
+<div class="statusbox">
+<div><div class="status-label">GitHub Pages · public workflow</div><div class="status-main" id="run-state">Connecting to deployment record…</div><div class="status-detail" id="run-detail">Retrieving the latest public workflow result.</div><div class="meter" aria-hidden="true"><span></span></div></div>
+<div class="status-pill" id="run-pill">Checking</div>
+</div>
+<div class="pulsefeed" aria-live="polite"><strong>Process statement</strong><span id="pulse-text">Initialising the public deployment check.</span></div>
+<div class="clockrow"><span>Local clock: <time id="clock">—</time></span><span>Signal checked: <time id="checked">—</time></span></div>
+<p class="fine">The deployment signal reads the public GitHub Actions record. The animated pulse and clock are interface activity, not a claim that background editorial work is running.</p>
+</section>
+
+<section class="section" id="news">
+<div class="section-head"><div><div class="eyebrow">External public relations</div><h2>News &amp; reference</h2></div></div>
+<p class="intro">Independent public news and reference destinations, alongside the published Ordinal spaces.</p>
+<div class="newsgrid">
+<a class="newslink" href="https://www.bbc.com/news"><span>BBC News<small>International and public affairs</small></span><span class="arrow">↗</span></a>
+<a class="newslink" href="https://www.theguardian.com/international"><span>The Guardian<small>World news and analysis</small></span><span class="arrow">↗</span></a>
+<a class="newslink" href="https://www.indiacode.nic.in/"><span>India Code<small>Official Indian legislation reference</small></span><span class="arrow">↗</span></a>
+<a class="newslink" href="https://scholar.google.com/"><span>Google Scholar<small>Research and scholarly publications</small></span><span class="arrow">↗</span></a>
+</div>
+</section>
+
+<footer class="copyright">
+<div class="footmark">△▽▯+</div>
+<strong>© HIM Dr. Avinandan Manjit Roy I, All Rights Reserved.</strong><br>
+<a href="https://isavinandan.wordpress.com/follow-avi/avis-copyrights/">Copyrights &amp; notice</a> · <a href="https://publinc.wordpress.com/log-record-submission/ordinal-exterminationality-name-server/dns/copyrights/">The Ordinal Pub copyright route</a>
+<div class="fine">Copyright attribution reproduced from the published WordPress notice. No broader licence is granted by this interface.</div>
+</footer>
+</div>
+<script>
+(function(){
+ const api='https://api.github.com/repos/HIMAvinandan/ORDINTEGRA/actions/runs?per_page=1';
+ const state=document.getElementById('run-state'),detail=document.getElementById('run-detail'),pill=document.getElementById('run-pill'),pulse=document.getElementById('pulse-text'),checked=document.getElementById('checked');
+ const phrases=['The public interface is checking the deployment record.','Published destinations remain available through their direct links.','Ordinal presence: publications, notices and external references.','The latest deployment evidence is being refreshed.'];
+ let phrase=0;
+ function tick(){const now=new Date();document.getElementById('clock').textContent=now.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',second:'2-digit'});document.getElementById('local-date').textContent=now.toLocaleDateString([], {day:'2-digit',month:'short',year:'numeric'});if(!document.hidden){phrase=(phrase+1)%phrases.length;pulse.textContent=phrases[phrase];}}
+ async function refresh(){
+  state.textContent='Checking public workflow…';pill.textContent='Live check';
+  try{
+   const res=await fetch(api,{headers:{'Accept':'application/vnd.github+json'},cache:'no-store'});
+   if(!res.ok)throw new Error('HTTP '+res.status);
+   const data=await res.json(),run=data.workflow_runs&&data.workflow_runs[0];
+   if(!run)throw new Error('No public run found');
+   const status=run.status==='completed'?(run.conclusion==='success'?'Deployment successful':'Deployment '+(run.conclusion||'completed')):'Deployment '+run.status;
+   state.textContent=status;
+   const date=run.updated_at?new Date(run.updated_at).toLocaleString(): 'time unavailable';
+   detail.textContent='Latest run #'+run.run_number+' · '+date+' · '+(run.head_sha||'').slice(0,7);
+   pill.textContent=run.status==='completed'&&run.conclusion==='success'?'Successful':(run.status==='completed'?'Attention':'In progress');
+   pill.style.borderColor=run.conclusion==='success'?'var(--green)':'var(--gold)';
+   pill.style.color=run.conclusion==='success'?'var(--green)':'var(--gold2)';
+   pulse.textContent=run.status==='completed'&&run.conclusion==='success'?'The latest published workflow reports a successful GitHub Pages deployment.':'The latest workflow state is '+run.status+(run.conclusion?' / '+run.conclusion:'')+'.';
+   if(run.html_url){const a=document.getElementById('run-state');a.title='Open latest workflow';a.style.cursor='pointer';a.onclick=()=>window.open(run.html_url,'_blank','noopener');}
+  }catch(e){state.textContent='Live signal unavailable';detail.textContent='The public workflow record could not be retrieved at this moment. The published page remains available.';pill.textContent='Offline / retry';pill.style.borderColor='var(--gold)';pill.style.color='var(--gold2)';pulse.textContent='A live check could not be completed; retrying on the next refresh.';}
+  checked.textContent=new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',second:'2-digit'});
+ }
+ document.getElementById('refresh').addEventListener('click',refresh);
+ tick();setInterval(tick,1000);refresh();setInterval(refresh,60000);
+})();
+</script>
+</body></html>
